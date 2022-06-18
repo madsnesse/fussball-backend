@@ -1,0 +1,14 @@
+services:
+  db:
+    image: postgres
+    restart: always
+    environment:
+      - POSTGRES_USER=fussball
+      - POSTGRES_PASSWORD=pgy5*|Ivx,LVf>+d
+    ports:
+      - '5432:5432'
+    volumes:
+      - db:/var/lib/postgresql/data
+volumes:
+  db:
+    driver: local

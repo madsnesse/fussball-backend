@@ -1,48 +1,17 @@
 package com.fuss.match;
 
-import com.fuss.league.League;
-import com.fuss.player.Player;
-import com.fuss.ranking.RankKey;
+import com.fasterxml.jackson.databind.annotation.JsonDeserialize;
+import com.fasterxml.jackson.databind.annotation.JsonSerialize;
+import org.immutables.value.Value;
 
-import javax.persistence.*;
-
-
-@Entity
-public class Match {
-    @Id
-    @GeneratedValue
-    @Column(name="match_id")
-    Long id;
-
-
-    private Long playerOne;
-
-    private Long playerTwo;
-
-    private Integer scoreOne;
-
-    private Integer scoreTwo;
-
-    private Long league;
-
-    public Long getPlayerOne() {
-        return playerOne;
-    }
-
-    public Long getPlayerTwo() {
-        return playerTwo;
-    }
-
-    public Integer getScoreOne() {
-        return scoreOne;
-    }
-
-    public Integer getScoreTwo() {
-        return scoreTwo;
-    }
-
-    public Long getLeague() {
-        return league;
-    }
+@Value.Immutable
+@JsonSerialize(as = ImmutableMatch.class)
+@JsonDeserialize(as = ImmutableMatch.class)
+public interface Match {
+    Long getPlayerIdOne();
+    Long getPlayerIdTwo();
+    Integer getScoreOne();
+    Integer getScoreTwo();
+    Long getLeagueId();
 
 }

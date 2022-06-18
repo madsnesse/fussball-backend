@@ -12,13 +12,28 @@
     <groupId>org.example</groupId>
     <artifactId>fussball-backend</artifactId>
     <version>1.0-SNAPSHOT</version>
+<!--    <dependencyManagement>-->
+<!--        <dependencies>-->
+<!--            <dependency>-->
+<!--                <groupId>com.google.cloud</groupId>-->
+<!--                <artifactId>spring-cloud-gcp-dependencies</artifactId>-->
+<!--                <version>${spring.cloud-gcp.version}</version>-->
+<!--                <type>pom</type>-->
+<!--                <scope>import</scope>-->
+<!--            </dependency>-->
+<!--        </dependencies>-->
+<!--    </dependencyManagement>-->
     <dependencies>
         <dependency>
             <groupId>javax.ws.rs</groupId>
             <artifactId>javax.ws.rs-api</artifactId>
             <version>2.1.1</version>
         </dependency>
-
+<!--        <dependency>-->
+<!--            <groupId>com.google.cloud</groupId>-->
+<!--            <artifactId>spring-cloud-gcp-starter-sql-postgresql</artifactId>-->
+<!--            <version>${spring.cloud-gcp.version}</version>-->
+<!--        </dependency>-->
         <dependency>
             <groupId>org.postgresql</groupId>
             <artifactId>postgresql</artifactId>
@@ -95,6 +110,9 @@
     <properties>
         <maven.compiler.source>17</maven.compiler.source>
         <maven.compiler.target>17</maven.compiler.target>
+        <spring.cloud.version>2.7.0</spring.cloud.version>
+        <spring.cloud-gcp.version>3.0.0</spring.cloud-gcp.version>
+
     </properties>
 
 </project>
