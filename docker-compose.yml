@@ -2,8 +2,7 @@ services:
   fussball-backend:
     container_name: fussball-backend
     build:
-      context: docker-fussball-backend
       dockerfile: Dockerfile
-    image: fusball-backend:latest
+    image: fussball-backend:latest
     ports:
       - 8080:8080
