@@ -4,7 +4,10 @@ import com.fuss.exception.LeagueNotFoundException;
 import com.fuss.exception.PlayerNotFoundException;
 import com.fuss.league.League;
 import com.fuss.league.LeagueRepository;
+import com.fuss.match.ImmutableMatch;
+import com.fuss.match.Match;
 import com.fuss.model.ImmutableRankResponse;
+import com.fuss.model.MatchRequest;
 import com.fuss.model.RankRequest;
 import com.fuss.model.RankResponse;
 import com.fuss.player.Player;
@@ -41,6 +44,23 @@ public class RankingController {
         return ImmutableRankResponse.builder()
                 .ranking(ranking)
                 .build();
+    }
+
+    @PostMapping("/match")
+    String addMatch(@RequestBody Match match){
+        fussballService.processMatch(match);
+        return "success";
+    }
+
+    @GetMapping("")
+    String getAll(){
+
+        List<Player> players = fussballService.getAllPlayers();
+
+        final String[] result = {""};
+
+        players.forEach(player -> result[0] +=player.getName());
+        return result[0];
     }
 
 
